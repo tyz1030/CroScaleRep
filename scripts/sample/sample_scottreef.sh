@@ -1,0 +1,13 @@
+python3 $HOME/CroScaleRep/sample.py \
+--data $HOME/geo_loc_data/scott_reef/rgb_mosaic \
+--data_type .vrt \
+--scale_down 8 \
+--output $HOME/geo_loc_data_gen/scottreef1000 \
+--microscope_src high_res_telescope_and_tile \
+--telescope_src tiff \
+--num_teles 1000 \
+--white_check_tele 1 \
+--white_check_micro 1 \
+--sample_mode random \
+--num_micros 32 \
+--flip_channels 1
