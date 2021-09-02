@@ -1,0 +1,14 @@
+python3 $HOME/CroScaleRep/train.py \
+--dataset $HOME/geo_loc_data_gen/kempten1000 \
+--workspace $HOME/CroScaleRep/model_trained/kempten/20210901_1 \
+--num_train 800 \
+--num_val 200 \
+--epoch 100 \
+--num_microviews 8 \
+--batch_size 5 \
+--tele_modalities 1111 \
+--gpu cuda:0 \
+--temp_param 2.0 \
+--lr 0.001 \
+--category 5 \
+--backbone fcn

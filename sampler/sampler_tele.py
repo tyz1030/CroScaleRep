@@ -237,8 +237,7 @@ class TeleSamplerTiffDense(TeleSamplerTiff):
             else:
                 break
 
-        # STEP 4+: cut chips for comparison
-        # chips = []
+        # STEP 4+: cut tiles for comparison
         for ii in range(self.sample_size[0]):  # rows
             row_path = subpath+"/row"+str(ii).zfill(4)
             os.mkdir(row_path)

@@ -1,0 +1,13 @@
+python3 $HOME/CroScaleRep/train.py \
+--dataset $HOME/geo_loc_data_gen/scottreef1000 \
+--workspace $HOME/CroScaleRep/model_trained/scott/20210829 \
+--num_train 800 \
+--num_val 200 \
+--epoch 100 \
+--num_microviews 9 \
+--batch_size 5 \
+--tele_modalities 111 \
+--gpu cuda:0 \
+--temp_param 1.0 \
+--lr 0.001 \
+--category 5
