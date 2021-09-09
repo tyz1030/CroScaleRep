@@ -13,5 +13,4 @@ Our data will be released soon on Deep Blue Repositories
 * opencv-python
 
 ## Executing program
-
-* see /script
+see /scripts
