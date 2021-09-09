@@ -29,8 +29,6 @@ class MicroSampler(UniModalSampler):
         return
 
 
-
-
 class MicroSamplerGMap(MicroSampler):
     def __init__(self, api_key = None, secret = None, step = 8, data_size = (512, 512), sample_size = (224, 224), hifi = True, mode = 'random') -> None:
         super(MicroSamplerGMap, self).__init__(data_size = data_size, sample_size = sample_size, step = step, mode = mode)
@@ -85,9 +83,9 @@ class MicroSamplerTiff(MicroSampler):
                 break
         return sample, pix_idx, rot_angle
 
-class MicroSamplerGMapChip(MicroSamplerGMap):
+class MicroSamplerGMapTile(MicroSamplerGMap):
     def __init__(self, api_key = None, secret = None, step = 8, data_size = (512, 512), sample_size = (224, 224), hifi = True, mode = 'random') -> None:
-        super(MicroSamplerGMapChip, self).__init__(api_key = api_key, secret = secret, step = step, data_size = data_size, sample_size = sample_size, hifi = hifi, mode = mode)
+        super(MicroSamplerGMapTile, self).__init__(api_key = api_key, secret = secret, step = step, data_size = data_size, sample_size = sample_size, hifi = hifi, mode = mode)
         return
 
     def sample(self, subpath, idx_micro):
@@ -113,9 +111,9 @@ class MicroSamplerGMapChip(MicroSamplerGMap):
         # cv.imwrite(fullname_chip, chip[:, :, 0])
         return img, pix_idx, rot_angle
         
-class MicroSamplerTiffChip(MicroSamplerTiff):
+class MicroSamplerTiffTile(MicroSamplerTiff):
     def __init__(self, white_check = False, mode = 'random', step = 8) -> None:
-        super(MicroSamplerTiffChip, self).__init__(white_check = white_check, mode = mode, step = step)
+        super(MicroSamplerTiffTile, self).__init__(white_check = white_check, mode = mode, step = step)
 
     def sample(self, subpath, idx_micro):        
         while(True):

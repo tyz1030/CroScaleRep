@@ -143,15 +143,12 @@ def main():
 
     micro_tsfm = transforms.Compose([
             transforms.RandomApply([
-                transforms.ColorJitter(0.2, 0.2, 0.2, 0.05)  # not strengthened
+                transforms.ColorJitter(0.3, 0.3, 0.3, 0.1)  # not strengthened
             ], p=0.8),
             transforms.RandomHorizontalFlip(),
             transforms.ToTensor(),
         ])
-    micro_tsfm = transforms.Compose([
-            transforms.RandomHorizontalFlip(),
-            transforms.ToTensor(),
-        ])
+
     dataset = CroScopeDataset(args, transform_micro=micro_tsfm)
     train_set, val_set = torch.utils.data.random_split(
         dataset, [args.num_train, args.num_val], generator=torch.Generator().manual_seed(RAND_SEED))

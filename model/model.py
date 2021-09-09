@@ -24,12 +24,9 @@ class CroScope(nn.Module):
 
         self.device = device
 
-        # self.kl_loss = nn.KLDivLoss(size_average=None, reduce=None, reduction='none', log_target=False)
-
     def forward(self, tele_img=None, micro_imgs=None, pix_map=None):
         ''' reshape tensor '''
-        # micro_raw_shape = micro_imgs.shape
-        # print(micro_raw_shape)
+
         tele_feature = None
         micro_feature = None
         if micro_imgs is not None:
@@ -69,12 +66,6 @@ class CroScope(nn.Module):
             tele_feature_tensor, repeats=2, dim=1)
         tele_feature_tensor_double = tele_feature_tensor_double.view(
             -1, tele_feature_tensor_double.shape[-1]) # (batchsize* 2*microviews)*featuresize
-
-
-        # cosine similarity
-        # tele_feature_tensor_double = normalize(tele_feature_tensor_double, dim = -1)
-        # micro_feature = normalize(micro_feature, dim = -1)
-        # logs = torch.matmul(tele_feature_tensor_double, torch.t(micro_feature))
 
         num = micro_feature.shape[0]
         ''' Bhattacharya Coefficient '''
