@@ -103,12 +103,12 @@ class MicroSamplerGMapTile(MicroSamplerGMap):
         img = img_rot[pad:1280-pad, pad:1280-pad, :] # cut final sample from patch, with hifi = True this will be 896*896
         img = cv.resize(img, (self.sample_size[0], self.sample_size[1])) # resize to desired size 
         
-        # STEP 2.5: pull a low res chip
-        # _, chip = self.pull_tele('pix2superres', pixel = [coord_u, coord_v], half_s = (16, 16))
-        # chip = cv.resize(chip, (32, 32))
-        # filename_chip = "randchip" + str(idx_micro).zfill(3) + ".png"
-        # fullname_chip = os.path.join(subpath, filename_chip)
-        # cv.imwrite(fullname_chip, chip[:, :, 0])
+        # STEP 2.5: pull a low res tile
+        # _, tile = self.pull_tele('pix2superres', pixel = [coord_u, coord_v], half_s = (16, 16))
+        # tile = cv.resize(tile, (32, 32))
+        # filename_tile = "randtile" + str(idx_micro).zfill(3) + ".png"
+        # fullname_tile = os.path.join(subpath, filename_tile)
+        # cv.imwrite(fullname_tile, tile[:, :, 0])
         return img, pix_idx, rot_angle
         
 class MicroSamplerTiffTile(MicroSamplerTiff):
@@ -138,10 +138,10 @@ class MicroSamplerTiffTile(MicroSamplerTiff):
                 break
         
         # STEP 2.5: pull a low res tile
-        # _, chip = self.pull_tele('pix2superres', pixel = [coord_u, coord_v], half_s = (160, 160))
-        # chip = cv.resize(chip, (32, 32))
-        # filename_chip = "randchip" + str(idx_micro).zfill(3) + ".png"
-        # fullname_chip = os.path.join(subpath, filename_chip)
-        # cv.imwrite(fullname_chip, chip)
+        # _, tile = self.pull_tele('pix2superres', pixel = [coord_u, coord_v], half_s = (160, 160))
+        # tile = cv.resize(tile, (32, 32))
+        # filename_tile = "randtile" + str(idx_micro).zfill(3) + ".png"
+        # fullname_tile = os.path.join(subpath, filename_tile)
+        # cv.imwrite(fullname_tile, tile)
 
         return sample, pix_idx, rot_angle

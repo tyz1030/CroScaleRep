@@ -54,7 +54,7 @@ class TeleSampler(UniModalSampler):
     @abc.abstractmethod
     def pix_to_coordinate(self, pixel_coordinate):
         '''
-        Input: pixel coordinate in sample chip
+        Input: pixel coordinate in sample tile
         Return: geo coordinate in longtitude and latitude
         '''
         raise NotImplementedError
@@ -62,7 +62,7 @@ class TeleSampler(UniModalSampler):
     @abc.abstractmethod
     def pix_to_superres(self, pixel_coordinate):
         '''
-        Input: pixel coordinate in sample chip
+        Input: pixel coordinate in sample tile
         Return: geo coordinate in longtitude and latitude
         '''
         raise NotImplementedError
@@ -187,7 +187,7 @@ class TeleSamplerTiff(TeleSampler):
             self.rot_mat[:2, :2]), img_coord - half_img_size)
         pix_superres = self.pix_center + np.array((pixel[1], pixel[0]))
         pix_superres = np.around(pix_superres * self.scale_down).astype(int)
-        # STEP 2: pull a chip from superres map
+        # STEP 2: pull a tile from superres map
         samp_padded = None
         if half_padded_size is not None:
             samp_padded = self.superres[pix_superres[0] - half_padded_size[0]:pix_superres[0] +
@@ -199,7 +199,7 @@ class TeleSamplerTiffDense(TeleSamplerTiff):
     def __init__(self, args, sample_size=(512, 512)) -> None:
         super(TeleSamplerTiffDense, self).__init__(
             args, sample_size=sample_size)
-        self.chip_half_s = 16  # hard code chip size 32*32
+        self.tile_half_s = 16  # hard code tile size 32*32
         return
 
     def sample(self, subpath):
@@ -243,10 +243,10 @@ class TeleSamplerTiffDense(TeleSamplerTiff):
             os.mkdir(row_path)
             # print(row_path)
             for jj in range(self.sample_size[1]):  # cols
-                chip = samp_padded[ps[0]-self.chip_half_s+ii:ps[0]+self.chip_half_s +
-                                   ii, ps[1]-self.chip_half_s+jj:ps[1]+self.chip_half_s+jj, :]
+                tile = samp_padded[ps[0]-self.tile_half_s+ii:ps[0]+self.tile_half_s +
+                                   ii, ps[1]-self.tile_half_s+jj:ps[1]+self.tile_half_s+jj, :]
                 filename = row_path+"/"+str(jj).zfill(4)+".png"
-                cv.imwrite(filename, chip)
+                cv.imwrite(filename, tile)
                 pass
 
         return sample, pix_idx, rot_angle
