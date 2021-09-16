@@ -1,7 +1,8 @@
 # Learning Cross-Scale Visual Representations for Real-Time Image Geo-Localization
 
 ## Data
-Our data will be released soon on Deep Blue Repositories
+You can download our data [here](https://drive.google.com/drive/folders/1LzyxtS7tK5MO9k6D3wTccW8inAuCZvdH?usp=sharing).
+In the future our data will be released on Deep Blue Repositories.
 
 ## Description
 
