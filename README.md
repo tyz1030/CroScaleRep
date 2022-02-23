@@ -2,7 +2,6 @@
 
 ## Data
 You can download our data [here](https://drive.google.com/drive/folders/1LzyxtS7tK5MO9k6D3wTccW8inAuCZvdH?usp=sharing).<br>
-In the future our data will be released on Deep Blue Repositories.
 
 ## Description
 
