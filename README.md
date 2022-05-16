@@ -18,12 +18,13 @@ see /scripts
 ## Citation
 If you find this project useful in your research, please consider cite:
 ```
-@misc{zhang2021learning,
-      title={Learning Cross-Scale Visual Representations for Real-Time Image Geo-Localization}, 
-      author={Tianyi Zhang and Matthew Johnson-Roberson},
-      year={2021},
-      eprint={2109.04087},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}
+@ARTICLE{9721060,  
+author={Zhang, Tianyi and Johnson-Roberson, Matthew},  
+journal={IEEE Robotics and Automation Letters},   
+title={Learning Cross-Scale Visual Representations for Real-Time Image Geo-Localization},   
+year={2022},  
+volume={7},  
+number={2},  
+pages={5087-5094},  
+doi={10.1109/LRA.2022.3154035}}
 ```
